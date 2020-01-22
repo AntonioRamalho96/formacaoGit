@@ -1,0 +1,24 @@
+\section{Introduction}
+With the constant development of Unmanned Air Vehicles (UAV) there has been an interest in using their potential for diverse applications. This potential could be further explored if autonomous UAV operation was possible, without the need for a human pilot. There is the challenge of making UAVs safe and capable, in order for them to be allowed to perform autonomously the desired applications. For example, there has been an effort to integrate these vehicles in the non-segregated airspace \cite{ref:history}. There is, however, a gap between the state of the art and these desired capabilities. 
+\par
+Autonomous UAV operation require a diversity of capabilities. To enable the absence of a human pilot, the system requires some capabilities that are in part provided by humans, namely environment perception, motion planning and trajectory execution. In the terrain automobile industry, there has been many advances in the past years. This evolution was partially pushed by technological advancements in areas such as information technology, data analysis, computer vision, etc.  \cite{ref:autonumousCars}.
+\par
+For UAVs this problem is usually simpler.  The problem is simpler for UAVs once the environment is not nearly as populated as for the autonomous cars. A simple approach is then desirable to solve this problem. Not only because the problem is not as complex as the one for ground vehicles but also due to the computational limitations related to the limited payload of aircraft. 
+\par 
+Autonomous systems are however complex, requiring a vast set of capabilities. This work will be focused in only a portion of that: the generation of collision free trajectories in real-time.
+% #############################################################################
+\subsection{Literature review}
+In robotics, path planning in unknown environments is a subject studied for many years. In path planning problems for UAVs most of the existing solutions, to deal with unknown obstacles, require a dedicated ground station \cite{angelov:saa} \cite{ref:LOWAS} . This is due to the low computational power available on on-board computers in small UAVs. On-board path planning for small UAVs has been proposed in \cite{ref:FPGA}, using a field programmable gate array (FPGA) chip. In this work, a solution was created in which genetic algorithms are used to compute a path plan based on a provided environment and set of start and goal configuration. In \cite{ref:coopOnBoard}, an online path planning algorithm for cooperative aircraft is developed and implemented in relatively powerful on-board computers. In two works by Ioannis K. Nikolos et al. \cite{ref:onlineEvolutionary} \cite{ref:onlineEvolutionary2}, an evolutionary algorithm is developed which allows online path planning in unknown environments. This work, however, considered static environments and it was never implemented in a vehicle.
+\par
+Recently, in the end of 2018, Marco Pavone et al. \cite{ref:quad} developed an online path planning algorithm that proved to be able to compute trajectories in real-time in partially unknown environments with moving obstacles. The authors claim it was the first experimented algorithm, for multi-rotors, with such capabilities. The algorithms were, however, ran in a ground station. In another interesting work online path planning was accomplished with the environment being acquired by a depth camera \cite{ETH}.
+\par
+The existing work regarding real-time path planning for multi-rotors in partially unknown environments with moving obstacles is not abundant and several ways of approaching the problem can be explored.
+
+\subsection{Objectives}
+In this work it is proposed a real-time path-planning algorithm for UAVs. The main goal is to make an algorithm capable of planning aggressive trajectories in partially unknown environments with moving obstacles. The algorithms should be able to quickly react to new detected obstacles (including moving obstacles) and safely avoid them by quickly adjusting the trajectory without having the need to stop the UAV for such.
+\par
+In the field of trajectory planning it is also desirable to compute optimal trajectories. Optimality will be defined in terms of mission costs (a combination between mission time and fuel/energy consumption). The algorithm will have anytime capabilities: it is possible to quickly generate a sub-optimal trajectory and then optimize it for a given period of time. An optimal trajectory is computed if enough computation time is used.
+\par
+To enable path planning in real time a simplified dynamic model for multi-rotors will be used. In order to validate that the computed trajectories are suitable for aggressive multi-rotor maneuvering a simulation will be performed and the position error of the multi-rotor, relatively to the provided references, will be stored through the simulation and analysed afterwards.
+
+
